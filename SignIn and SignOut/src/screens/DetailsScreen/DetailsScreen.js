@@ -14,10 +14,9 @@ import {
   Switch,
   Pressable
 } from "react-native";
-import Icon from "react-native-vector-icons/MaterialIcons";
 import COLORS from "../../consts/colors";
 
-import houses from '../../consts/houses';
+import houses from '../../consts/dataBase';
 
 const { width } = Dimensions.get("screen");
 const DetailsScreen = ({ navigation, route }) => {
@@ -26,7 +25,7 @@ const DetailsScreen = ({ navigation, route }) => {
   console.log(route.params);
   const fetchParkingList = async () => {
     try {
-      const res = await axios 
+      const res = await axios
         .get(`http://192.168.8.105:3001/api/parking/${house._id}`)
         .then((respo) => {
           console.log(respo)
@@ -93,13 +92,16 @@ const DetailsScreen = ({ navigation, route }) => {
         <View style={style.backgroundImageContainer}>
           <ImageBackground style={style.backgroundImage} source={house.image}>
             <View style={style.header}>
-              <View style={style.headerBtn}>
-                <Icon
-                  name="arrow-back-ios"
-                  size={20}
-                  onPress={navigation.goBack}
-                />
+              
+              <View style={style.headerBtn}>              
+              <TouchableOpacity onPress={navigation.goBack}>
+                        <Image
+                             source={require('../../assets/arrow.png')}
+                             style={style.arrow}
+                           />
+              </TouchableOpacity>
               </View>
+
               <View><Text>Add to favorites</Text>
 
               {/**/}
@@ -112,8 +114,6 @@ const DetailsScreen = ({ navigation, route }) => {
                   data={houses}
                   //onChange={() => favorites(house)}
               />
-              
-              
 
               </View>
             </View>
@@ -134,19 +134,23 @@ const DetailsScreen = ({ navigation, route }) => {
             </Text>
 
             <View style={{ flexDirection: "row", alignItems: "center" }}>
-              <View style={style.ratingTag}>
-                <Text style={{ color: COLORS.white }}>4.8</Text>
-              </View>
-              <Text style={{ fontSize: 13, marginLeft: 5 }}>155 ratings</Text>
+              <Text style={{ fontSize: 13, marginRight: 15 }}>155 ratings</Text>
             </View>
           </View>
 
-          
           {/* Location text */}
           <Text style={{ fontSize: 16, color: COLORS.grey }}>
             {house.location}
           </Text>
 
+          <View style={style.watchlist}>
+        <TouchableOpacity onPress={ClickHandler}>
+          <Image 
+             style={style.floatingButton}
+             source={{uri:'https://www.4me.com/wp-content/uploads/2018/01/4me-icon-watchlist.png'}}
+          />
+        </TouchableOpacity>
+      </View>
       
       <View style={style.CustomRatingBarStyle}>
 
@@ -154,7 +158,6 @@ const DetailsScreen = ({ navigation, route }) => {
        {defaultRating + ' / ' + maxRating.length}
        
      </Text>
-
 
        {
          maxRating.map((item, key) =>{
@@ -166,7 +169,7 @@ const DetailsScreen = ({ navigation, route }) => {
             onPress={()=> setdefaultRating(item)}
           >
             <Image
-              style={style.startImgStyle}
+              style={style.starImgStyle}
               source={
                 item <= defaultRating
                 ?{uri: starImgFilled}
@@ -181,38 +184,19 @@ const DetailsScreen = ({ navigation, route }) => {
      </View>
 
           {/* Facilities container */}
-          <View style={{ flexDirection: "row", marginTop: 20 }}>
+          <View style={{ flexDirection: "row", marginTop: 10 }}>
             <View style={style.facility}>
-              <Icon name="aspect-ratio" size={18} />
               <Text style={style.facilityText}>75m area</Text>
             </View>
-            <View>
-        <TouchableOpacity style={style.watchlist} onPress={ClickHandler}>
-          <Image 
-             style={style.floatingButton}
-             source={{uri:'https://www.4me.com/wp-content/uploads/2018/01/4me-icon-watchlist.png'}}
-          />
-        </TouchableOpacity>
-      </View>
-            <View 
-          style={{
-            flex: 1,
-            justifyContent: 'flex-end',
-            paddingLeft : 235,
-          }}>
-
-        <Pressable onPress={() => navigation.navigate('Map')}>
+            
         <View style={style.mapBtn}>
+        <Pressable onPress={() => navigation.navigate('Map')}>
            <Text style={style.mapBtnText}> Map</Text>
-           </View>
         </Pressable>
-        
         </View>
-
           </View>
-
-
-          <Text style={{ marginTop: 20, color: COLORS.grey }}>
+          
+          <Text style={{ marginTop: 20, color: COLORS.darkGray }}>
             {house.details}
           </Text>
 
@@ -235,8 +219,6 @@ const DetailsScreen = ({ navigation, route }) => {
                 : "-"}
             </Text>
           </View>
-          
-      
 
           <View
             style={{
@@ -253,8 +235,6 @@ const DetailsScreen = ({ navigation, route }) => {
               </View>
             </TouchableOpacity> 
           </View>
-
-           
 
         </View>
       </ScrollView>
@@ -334,10 +314,18 @@ const style = StyleSheet.create({
   },
   detailsContainer: { flex: 1, paddingHorizontal: 20, marginTop: 40 },
   facility: { flexDirection: "row", marginRight: 15 },
-  facilityText: { marginLeft: 5, color: COLORS.grey },
+  facilityText: { marginLeft: 5, color: COLORS.darkGray },
 
 
   facil: {flexDirection: 'row', marginRight: 25},
+
+  arrow: {
+    resizeMode: 'contain',
+    width: 30,
+    height: 30,
+    left: 0,
+    bottom: 1
+  },
 
   mapBtn: {
       height: 35,
@@ -345,8 +333,8 @@ const style = StyleSheet.create({
       backgroundColor: 'steelblue',
       borderRadius: 8,
       justifyContent: 'center',
-      right: 60,
-      bottom:10
+      left: 220,
+      bottom: 20
   },
   mapBtnText: {
     fontSize: 20,
@@ -388,9 +376,10 @@ const style = StyleSheet.create({
   CustomRatingBarStyle:{
     justifyContent:'center',
     flexDirection: 'row',
-    marginLeft: 230
+    marginLeft: 230,
+    bottom: 30
   },
-  startImgStyle:{
+  starImgStyle:{
     width:25,
     height: 25,
     top: 0,
@@ -413,11 +402,15 @@ const style = StyleSheet.create({
     left:0,
     
   },
+  watchlist: {
+    height: 35,
+      width: 65,
+  },
   floatingButton: {
     resizeMode: 'contain',
     width: 50,
     height: 50,
-    left: 160,
+    left: 0,
     bottom: 1
   },
 });
