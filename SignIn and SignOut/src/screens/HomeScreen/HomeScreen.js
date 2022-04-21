@@ -8,13 +8,13 @@ import {
   TextInput,
   FlatList,
   Dimensions,
+  TouchableOpacity,
   StyleSheet,
   Image,
   Pressable,
   ScrollView,
 } from 'react-native';
 import COLORS from '../../consts/colors';
-import Icon from 'react-native-vector-icons/MaterialIcons';
 const {width} = Dimensions.get('screen');
 import houses from '../../consts/houses';
 const HomeScreen = ({navigation}) => {
@@ -174,12 +174,15 @@ const HomeScreen = ({navigation}) => {
             paddingHorizontal: 20,
           }}>
           <View style={style.searchInputContainer}>
-            <Icon name="search" color={COLORS.grey} size={25} />
-            <TextInput placeholder="Search address, city, location" />
-          </View>
-
-          <View style={style.sortBtn}>
-            <Icon name="tune" color={COLORS.white} size={25} />
+            <View style={style.headerBtn}>              
+              <TouchableOpacity>
+                  <Image
+                        source={require('../../assets/search.png')}
+                        style={style.search}
+                      />
+              </TouchableOpacity>
+              </View>
+            <TextInput style={{paddingLeft: 20 }} placeholder="Search address, city, location" />
           </View>
         </View>
 
@@ -234,6 +237,13 @@ const style = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     marginLeft: 10,
+  },
+  search: {
+    resizeMode: 'contain',
+    width: 30,
+    height: 30,
+    left: 0,
+    bottom: 1
   },
   optionsCard: {
     height: 210,
