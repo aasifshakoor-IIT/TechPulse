@@ -36,9 +36,11 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     text: {
-        fontSize: 40,
-        margin: 10,
-    },    
+      fontSize: 40,
+      marginTop: 50,
+      color: COLORS.blue,
+      fontWeight: "bold"
+  },
   startImgStyle:{
     width: 350,
     height: 350,
