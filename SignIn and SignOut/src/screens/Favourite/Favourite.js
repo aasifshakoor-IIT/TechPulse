@@ -9,19 +9,11 @@ import {
     Image,
 } from 'react-native';
 import COLORS from '../../consts/colors';
-import houses from '../../consts/houses';
+import houses from '../../consts/dataBase';
 import {useNavigation} from '@react-navigation/native';
 
-//const {width} = Dimensions.get('screen');
-
-
-//export default function Map()
-
-
-//export default class App extends Component<{}> {
 
   const Favourite = ({navigation}) => {
-
 
   SampleFunction=(item)=>{
 
@@ -29,29 +21,7 @@ import {useNavigation} from '@react-navigation/native';
 
   }
 
- //render() {
-
   var fav = [""];
-
-//  const navigation = useNavigation();
-
-{/*
-const Fav = (()=>{
-  if(houses.isFavourite==true){
-    return(
-       fav.map((item, key)=>(
-        <FlatList key={key}
-          //snapToInterval={width - 20}
-          showsHorizontalScrollIndicator={false}
-          contentContainerStyle={{paddingLeft: 20, paddingVertical: 20}}
-          horizontal
-          data={houses}
-          renderItem={({item}) => <Card house={item} />}
-        />
-      ))
-    )
-  }})
-*/}
 
   const Card = ({house}) => {
     if(house.isFavourite == true){
@@ -105,15 +75,7 @@ const Fav = (()=>{
     <View style={style.body}>
         <Text style={style.text}> 
              FAVOURITE
-         </Text>
-        {/*
-         
-         <Text key={key} style={styles.TextStyle} onPress={ this.SampleFunction.bind(this, item) }> { item } </Text>)
-
-         */}
-
-         
-
+         </Text>     
 
 
        { fav.map((item, key)=>(
@@ -131,9 +93,6 @@ const Fav = (()=>{
  }
 
 
-
-
-
 const style = StyleSheet.create({
   
   MainContainer :{
@@ -148,14 +107,16 @@ const style = StyleSheet.create({
         alignItems: 'center',
     },
     text: {
-        fontSize: 40,
-        margin: 10,
+      fontSize: 40,
+      marginTop: 50,
+      marginBottom: 30,
+      color: COLORS.red,
+      fontWeight: "bold"
     },
     
  MainContainer: {
     flex: 1,
     margin: 10
-    
   },
  
   TextStyle:{
@@ -169,11 +130,7 @@ const style = StyleSheet.create({
     justifyContent: 'space-between',
     paddingHorizontal: 20,
   },
-  profileImage: {
-    height: 50,
-    width: 60,
-    borderRadius: 25,
-  },
+  
   searchInputContainer: {
     height: 50,
     backgroundColor: COLORS.light,
@@ -183,6 +140,7 @@ const style = StyleSheet.create({
     paddingHorizontal: 20,
     borderRadius: 12,
   },
+  
   sortBtn: {
     backgroundColor: COLORS.dark,
     height: 50,
@@ -234,7 +192,7 @@ const style = StyleSheet.create({
     height: 230,
     backgroundColor: COLORS.white,
     elevation: 10,
-    width: 150,
+    width: 170,
     marginRight: 20,
     padding: 15,
     borderRadius: 20,
