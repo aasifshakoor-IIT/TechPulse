@@ -17,7 +17,7 @@ import DetailsScreen from '../screens/DetailsScreen';
 import AccountScreen from '../screens/AccountScreen';
 import Map from '../screens/Map';
 import HMap from '../screens/HMap';
-import Help from '../screens/Help';
+import AboutUs from '../screens/AboutUs';
 import Favourite from '../screens/Favourite';
 
 const Stack = createNativeStackNavigator();
@@ -39,7 +39,7 @@ const Navigation = () => {
         <Stack.Screen name="AccountScreen" component={AccountScreen} />
         <Stack.Screen name="Map" component={Map} />
         <Stack.Screen name="HMap" component={HMap} />
-        <Stack.Screen name="Help" component={Help} />
+        <Stack.Screen name="AboutUs" component={AboutUs} />
         <Stack.Screen name="Favourite" component={Favourite} />
       </Stack.Navigator>
     </NavigationContainer>
