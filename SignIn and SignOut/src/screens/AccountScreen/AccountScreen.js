@@ -16,8 +16,6 @@ import {
 import {useNavigation} from '@react-navigation/native';
 import COLORS from '../../consts/colors';
 
-
-
 const colors = {primary: '#1f145c', white: '#fff'};
     
 const AccountScreen = () => {
@@ -47,7 +45,7 @@ const AccountScreen = () => {
         style={style.image}
       />
       <View style={{paddingHorizontal: 50, paddingTop: 20}}>        
-          <Text style={style.title}>NAME</Text>
+          <Text style={style.title}>Jane</Text>
         </View>
       <View
         style={{
@@ -70,10 +68,10 @@ const AccountScreen = () => {
           paddingBottom: 0,
           alignItems: 'center'
         }}>
-           <TouchableOpacity onPress={() => navigation.navigate('Help')} >               
+           <TouchableOpacity onPress={() => navigation.navigate('AboutUs')} >               
 
               <View style={style.btnContainer}>
-                <Text style={style.btnText}>{'Help'}</Text>
+                <Text style={style.btnText}>{'ABOUT US'}</Text>
 
               </View>
             </TouchableOpacity> 
@@ -94,16 +92,6 @@ const AccountScreen = () => {
 
       </View>
       </TouchableOpacity> 
-
-      {/*
-     <View style={style.btnContainer}>
-      <Button style={style.btnText}
-      color= '#47597E'
-      title= 'Logout'  onPress={() => Alert.alert("Logout", "Do you wan to logout?",[{
-        text: "YES", onPress: () => navigation.navigate('SignIn')},
-        {text: "NO", style: 'cancel'}])}/>
-      </View>
-      */}
         
        </View>
 
@@ -122,10 +110,15 @@ const style = StyleSheet.create({
     justifyContent: "center",
     height: 500,
     width: '100%',
+    top: 10,
     borderBottomLeftRadius: 100,
   },
 
-  title: {fontSize: 25, fontWeight: 'bold'},
+  title: {
+    fontSize: 35, 
+    fontWeight: 'bold',
+    top: 20
+  },
 
   btnContainer: {
     elevation: 8,
