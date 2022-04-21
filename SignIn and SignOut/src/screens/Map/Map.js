@@ -56,7 +56,10 @@ const styles = StyleSheet.create({
     },
     text: {
         fontSize: 40,
-        margin: 10,
+        marginTop: 10,
+        paddingBottom: 20,
+        color: COLORS.blue,
+        fontWeight: "bold"
     },
     map: {
         width: '100%',
