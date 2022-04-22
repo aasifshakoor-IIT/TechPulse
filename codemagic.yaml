@@ -16,8 +16,8 @@ triggering:
                   include: true
                   source: true
 scripts:
-       - name: Install npm dependencies
-          script: |
+      - name: Install npm dependencies
+script: |
                npm install
 build:
     stage: build
