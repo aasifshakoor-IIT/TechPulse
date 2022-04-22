@@ -45,4 +45,3 @@ workflows:
                     # keyAlias=$CM_KEY_ALIAS_USERNAME
                     # storeFile=/tmp/keystore.keystore
                     # EOF               
-            - name: Build Android release
