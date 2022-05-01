@@ -71,7 +71,27 @@ import {useNavigation} from '@react-navigation/native';
 
   }
 
+  return (
+    <View style={style.body}>
+        <Text style={style.text}> 
+             FAVOURITE
+         </Text>     
 
+
+       { fav.map((item, key)=>(
+        <FlatList key={key}
+          showsHorizontalScrollIndicator={false}
+          contentContainerStyle={{paddingLeft: 20, paddingVertical: 20}}
+          horizontal
+          data={houses}
+          renderItem={({item}) => <Card house={item} />}
+        />
+      ))}
+
+     </View>
+   );
+ }
+ 
 const style = StyleSheet.create({
   
   MainContainer :{
