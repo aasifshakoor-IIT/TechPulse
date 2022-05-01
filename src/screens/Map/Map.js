@@ -18,6 +18,27 @@ const Map = () => {
 
     const navigation = useNavigation();
 
+{/*}
+    const TrackDetailScreen = ({ route, navigation }) => {
+        const track = route.params.track;
+        const initialTrack = track.locations[0].coords;
+        navigation.setOptions({ headerTitle: track.name });
+        return (
+            <View style={styles.container}>
+                <MapView
+                    style={styles.map}
+                    initialRegion={{
+                        latitudeDelta: 0.05,
+                        longitudeDelta: 0.05,
+                        ...initialTrack,
+                    }}
+                >
+                    <Polyline coordinates={track.locations.map(loc => loc.coords)} />
+                </MapView>
+            </View>
+        );
+    };
+*/}
 
     return(
         <View style={styles.body}>
