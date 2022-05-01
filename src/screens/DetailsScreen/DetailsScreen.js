@@ -74,7 +74,15 @@ const DetailsScreen = ({ navigation, route }) => {
   }
   };  
 
+  const [defaultRating, setdefaultRating] = useState(2)
+  const [maxRating, setmaxRating]= useState([1,2,3,4,5])
+  const ClickHandler = () => {
+    alert('Watching : 1')
+  }
   
+  const starImgFilled = 'https://github.com/tranhonghan/images/blob/main/star_filled.png?raw=true'
+  //const starImgFilled = './srs/assets/star_filled.png'
+  const starImgCorner = 'https://github.com/tranhonghan/images/blob/main/star_corner.png?raw=true'
 
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.white }}>
@@ -96,7 +104,6 @@ const DetailsScreen = ({ navigation, route }) => {
 
               <View><Text>Add to favorites</Text>
 
-              {/**/}
               <Switch
                   trackColor={{ false: "#767577", true: "red" }}
                   thumbColor={isEnabled ? "red" : "#f4f3f4"}
@@ -104,14 +111,12 @@ const DetailsScreen = ({ navigation, route }) => {
                   onValueChange={toggleSwitch}
                   value={isEnabled}
                   data={houses}
-                  //onChange={() => favorites(house)}
               />
 
               </View>
             </View>
           </ImageBackground>
 
-          {/* Virtual Tag View */}
         </View>
 
 
