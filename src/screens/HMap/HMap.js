@@ -22,7 +22,7 @@ const HMap = () => {
          <Image 
                           style={styles.startImgStyle}
 
-            source={{uri:'https://github.com/VINURIRODRIGO/Techpulse/blob/main/runs/detect/exp/img9.jpg?raw=true'}}
+            source={{uri:'https://github.com/VINURIRODRIGO/Techpulse/blob/main/data/images/img18.png?raw=true'}}
           />
 
         </View>
@@ -43,7 +43,7 @@ const styles = StyleSheet.create({
   },
   startImgStyle:{
     width: 400,
-    height: 400,
+    height: 300,
     top: 40,
     resizeMode: 'cover',
   },
