@@ -23,7 +23,7 @@ const HomeScreen = ({navigation}) => {
   const fetchParkingList = async () => {
     try {
       const res = await axios
-        .get("http://38.242.202.81:3001/api/parkings")
+        .get("http://192.168.8.108:3001/api/parkings")
         .then((respo) => {
           return respo;
         })
@@ -31,7 +31,7 @@ const HomeScreen = ({navigation}) => {
           console.log(error.response);
           console.log(error.request);
           console.log(error);
-        });
+        });   
 
       if (res !== undefined && res.data) {
         setParkingList(res.data);
