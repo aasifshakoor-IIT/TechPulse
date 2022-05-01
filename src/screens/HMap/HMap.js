@@ -22,7 +22,7 @@ const HMap = () => {
          <Image 
                           style={styles.startImgStyle}
 
-            source={{uri:'https://image.shutterstock.com/image-photo/empty-parking-lots-aerial-view-260nw-586368239.jpg'}}
+            source={{uri:'https://github.com/VINURIRODRIGO/Techpulse/blob/main/runs/detect/exp/img9.jpg?raw=true'}}
           />
 
         </View>
@@ -42,8 +42,8 @@ const styles = StyleSheet.create({
       fontWeight: "bold"
   },
   startImgStyle:{
-    width: 350,
-    height: 350,
+    width: 400,
+    height: 400,
     top: 40,
     resizeMode: 'cover',
   },
