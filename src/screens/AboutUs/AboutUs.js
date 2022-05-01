@@ -23,11 +23,11 @@ const AboutUs = () => {
           style={styles.logo}
           resizeMode="contain"
         />
-        <Text style={styles.text}> 
+        <Text style={styles.text1}> 
            ABOUT US
          </Text>
          <Text style={styles.text2}> 
-                  
+           Parking occupancy detection systems are important for the effective management of parking lots and time. checking the availability of the free parking spaces and communicating to the users in real-time is crucial. PARKIT will provide a remote facility for the users to find a parking space for a vehicle.         
          </Text>
          <Text style={{fontSize: 18, marginRight: 50, padding: 15,color: COLORS.darkblue, fontWeight: "bold"}}> 
            FRONT-END DEVELOPER DETAILS
