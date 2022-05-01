@@ -26,7 +26,7 @@ const DetailsScreen = ({ navigation, route }) => {
   const fetchParkingList = async () => {
     try {
       const res = await axios
-        .get(`http://192.168.8.108:3001/api/parking/${house._id}`)
+        .get(`http://192.168.1.11:3001/api/parking/${house._id}`)
         .then((respo) => {
           console.log(respo)
           return respo;
@@ -74,15 +74,7 @@ const DetailsScreen = ({ navigation, route }) => {
   }
   };  
 
-  const [defaultRating, setdefaultRating] = useState(2)
-  const [maxRating, setmaxRating]= useState([1,2,3,4,5])
-  const ClickHandler = () => {
-    alert('Watching : 1')
-  }
   
-  const starImgFilled = 'https://github.com/tranhonghan/images/blob/main/star_filled.png?raw=true'
-  //const starImgFilled = './srs/assets/star_filled.png'
-  const starImgCorner = 'https://github.com/tranhonghan/images/blob/main/star_corner.png?raw=true'
 
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.white }}>
