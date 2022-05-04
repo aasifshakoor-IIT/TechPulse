@@ -47,9 +47,9 @@ const AccountScreen = () => {
       <View style={{paddingHorizontal: 50, paddingTop: 20}}>        
           <Text style={style.title}>Jane</Text>
         </View>
-      <View
+      <View         
         style={{
-          flex: 0.75,
+          flex: 0.75, 
           justifyContent: 'flex-end',
           paddingBottom: 0,
           alignItems: 'center'
