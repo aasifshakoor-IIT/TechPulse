@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import axios from "axios";
+import axios from "axios"; 
 import {
   SafeAreaView,
   View,
@@ -19,11 +19,11 @@ const {width} = Dimensions.get('screen');
 import houses from '../../consts/houses';
 const HomeScreen = ({navigation}) => {
 
-  const [parkingList, setParkingList] = React.useState(undefined);
+  const [parkingList, setParkingList] = React.useState(undefined); // React Hook API
   const fetchParkingList = async () => {
     try {
       const res = await axios
-        .get("http://192.168.1.11:3001/api/parkings")
+        .get("http://192.168.8.107:3001/api/parkings")
         .then((respo) => {
           return respo;
         })
